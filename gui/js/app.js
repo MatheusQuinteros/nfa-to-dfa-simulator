@@ -92,6 +92,7 @@ function atualizarAFD() {
 
 function trocarAba(aba) {
   fecharFlutuantes();
+  esconderMensagem();
   abaAtual = aba;
   for (const botao of document.querySelectorAll("[data-aba]")) {
     const ativa = botao.dataset.aba === aba;
@@ -124,6 +125,7 @@ for (const botao of document.querySelectorAll("[data-aba]")) {
 for (const botao of document.querySelectorAll("[data-modo]")) {
   botao.onclick = () => definirModo(botao.dataset.modo);
 }
+$("mensagem").onclick = esconderMensagem;
 $("btn-exemplo").onclick = () => editor.carregar(EXEMPLO);
 $("btn-limpar").onclick = (ev) => {
   if (!editor.estados.length) return;
@@ -142,7 +144,7 @@ document.addEventListener("keydown", (ev) => {
 // ---------- início ----------
 
 definirModo("estado");
-editor.carregar(EXEMPLO);
+editor.limpar();
 execucao.habilitar(false);
 
 iniciarPython()
