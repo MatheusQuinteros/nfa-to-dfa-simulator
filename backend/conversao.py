@@ -8,9 +8,9 @@ vazio aparece como estado de erro (poço), deixando o AFD completo.
 from collections import deque
 from typing import Dict
 
-from automato import AFD, AFN, EstadoAFD
-from operacoes import fecho_epsilon, mover
-from validacao import validar_afn
+from .automato import AFD, AFN, EstadoAFD
+from .operacoes import fecho_epsilon, mover
+from .validacao import validar_afn
 
 
 def afn_para_afd(afn: AFN) -> AFD:

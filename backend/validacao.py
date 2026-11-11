@@ -5,7 +5,7 @@ Detecta erros de definição cedo, com mensagens claras, em vez de
 deixar estourar um KeyError no meio da conversão.
 """
 
-from automato import AFN, EPSILON
+from .automato import AFN, EPSILON
 
 
 def validar_afn(afn: AFN) -> None:

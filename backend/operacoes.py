@@ -6,7 +6,7 @@ São as duas peças usadas pela construção de subconjuntos.
 
 from typing import FrozenSet, Iterable
 
-from automato import AFN, EPSILON, Estado, EstadoAFD, Simbolo
+from .automato import AFN, EPSILON, Estado, EstadoAFD, Simbolo
 
 
 def fecho_epsilon(afn: AFN, estados: Iterable[Estado]) -> EstadoAFD:

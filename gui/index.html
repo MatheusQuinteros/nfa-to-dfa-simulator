@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simulador AFN → AFD</title>
+  <link rel="stylesheet" href="css/estilo.css">
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <header class="topo">
+    <h1>Simulador AFN → AFD</h1>
+    <nav class="abas" role="tablist">
+      <button type="button" role="tab" data-aba="afn" class="ativa" aria-selected="true">AFN (editor)</button>
+      <button type="button" role="tab" data-aba="afd" aria-selected="false">AFD convertido</button>
+    </nav>
+    <span id="status-python" class="status">Carregando Python…</span>
+  </header>
+
+  <div id="mensagem" class="mensagem" role="status" hidden></div>
+
+  <main>
+    <section id="painel-afn" class="painel">
+      <div class="ferramentas" role="toolbar" aria-label="Ferramentas do editor">
+        <div class="grupo">
+          <button type="button" data-modo="estado" title="Criar estados (E)">◯ Estado</button>
+          <button type="button" data-modo="transicao" title="Criar transições (T)">→ Transição</button>
+          <button type="button" data-modo="mover" title="Mover e editar (M)">✥ Mover</button>
+          <button type="button" data-modo="apagar" title="Apagar (X)">✕ Apagar</button>
+        </div>
+        <div class="grupo">
+          <button type="button" id="btn-exemplo">Exemplo</button>
+          <button type="button" id="btn-limpar">Limpar</button>
+        </div>
+        <p id="dica" class="dica"></p>
+      </div>
+      <svg id="tela-afn" class="tela" aria-label="Editor do AFN"></svg>
+    </section>
+
+    <section id="painel-afd" class="painel" hidden>
+      <p id="afd-vazio" class="afd-vazio" hidden></p>
+      <div id="conteudo-afd" class="conteudo-afd">
+        <svg id="tela-afd" class="tela" aria-label="AFD convertido"></svg>
+        <aside class="lateral">
+          <h2>Tabela de transição</h2>
+          <div class="rolagem"><table id="tabela-afd"></table></div>
+          <p class="legenda">→ inicial · * final · ∅ estado de erro</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="execucao">
+    <div class="controles">
+      <label for="palavra">Palavra</label>
+      <input id="palavra" type="text" autocomplete="off" spellcheck="false" placeholder="ex.: aab">
+      <button type="button" id="btn-iniciar" class="primario">Iniciar</button>
+      <button type="button" id="btn-voltar" title="Passo anterior">◀ Voltar</button>
+      <button type="button" id="btn-avancar" title="Próximo passo">Passo ▶</button>
+      <button type="button" id="btn-reiniciar">Reiniciar</button>
+    </div>
+    <div class="estado-execucao">
+      <div id="fita" class="fita" aria-label="Palavra sendo lida"></div>
+      <p id="info-passo" class="info"></p>
+      <span id="veredito" class="veredito" hidden></span>
+    </div>
+  </footer>
+</body>
+</html>
