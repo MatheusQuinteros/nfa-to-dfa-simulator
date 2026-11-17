@@ -148,8 +148,7 @@ index.html            # redireciona para gui/ (página publicada no GitHub Pages
 <!-- TODO: nome e código da disciplina da UFRGS, e semestre. -->
 Projeto feito a partir de um trabalho da disciplina de <!-- TODO --> da UFRGS.
 
-Créditos: a definição das estruturas de AFN e AFD (`backend/automato.py`) foi escrita por mim. O
-restante do backend e a interface web foram desenvolvidos com auxílio de IA (Claude, da Anthropic),
+Créditos: a definição das estruturas de AFN e AFD, suas funções e implementações foram escritas por mim. A interface web foram desenvolvidos com auxílio de IA (Claude, da Anthropic),
 a partir das minhas especificações. O projeto usa o
 [Pyodide](https://pyodide.org/), carregado do CDN jsDelivr; nenhum código de terceiros está copiado no
 repositório.
